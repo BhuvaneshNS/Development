@@ -1,0 +1,2 @@
+2022-09-16 11:51:57,951 ERROR Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Failed executing DbCommand (2ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+ALTER TABLE [CartItems] ADD [CartId] nvarchar(max) NULL;

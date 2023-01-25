@@ -1,0 +1,108 @@
+<div class="register-form">
+  <h1 class="mb-4 text-center">Register</h1>
+  <form [formGroup]="registrationForm">
+    <div class="form-group mb-4">
+      <label for="personName">User Name</label>
+      <input
+        type="text"
+        id="personName"
+        class="form-control"
+        formControlName="personName"
+        placeholder="Enter your name"
+      />
+      <div
+        class="text-danger"
+        *ngIf="!personName?.valid && (personName?.dirty || personName?.touched)"
+      >
+        <div *ngIf="personName?.errors?.['required']">
+          User name is required
+        </div>
+        <div *ngIf="personName?.errors?.['pattern']">Enter valid name</div>
+      </div>
+    </div>
+    <div class="form-group mb-4">
+      <label for="personCity">Select City</label>
+      <select id="personCity" formControlName="personCity" class="form-control">
+        <option value="" disabled>Select</option>
+        <option *ngFor="let city of cities" [value]="city">
+          {{ city }}
+        </option>
+      </select>
+      <div
+        class="text-danger"
+        *ngIf="!personCity?.valid && (personCity?.dirty || personCity?.touched)"
+      >
+        <div *ngIf="personCity?.errors?.['required']">Please select city</div>
+      </div>
+    </div>
+    <div class="form-group mb-4">
+      <label for="emailId">Email Id</label>
+      <input
+        type="email"
+        id="emailId"
+        class="form-control"
+        formControlName="emailId"
+        placeholder="Enter your email id"
+      />
+      <div
+        class="text-danger"
+        *ngIf="!emailId?.valid && (emailId?.dirty || emailId?.touched)"
+      >
+        <div *ngIf="emailId?.errors?.['required']">Email id is required</div>
+        <div *ngIf="emailId?.errors?.['email']">Enter valid email id</div>
+      </div>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        formControlName="password"
+        id="password"
+        class="form-control"
+        placeholder="Enter password"
+      />
+      <div
+        class="text-danger"
+        *ngIf="!password?.valid && (password?.dirty || password?.touched)"
+      >
+        <div *ngIf="password?.errors?.['required']">Password is required</div>
+        <div *ngIf="personName?.errors?.['minLength']">
+          Password must be of minimum 3 characters
+        </div>
+      </div>
+    </div>
+
+    <div class="form-group mb-4">
+      <label for="roleId">Select User Role</label>
+      <select
+        formControlName="roleId"
+        ngDefaultControl
+        id="roleId"
+        class="form-control"
+      >
+        <option value="" disabled>Select</option>
+        <option *ngFor="let userRole of userRoles" [value]="userRole.id">
+          {{ userRole.name }}
+        </option>
+      </select>
+      <div
+        class="text-danger"
+        *ngIf="!roleId?.valid && (roleId?.dirty || roleId?.touched)"
+      >
+        <div *ngIf="roleId?.errors?.['required']">Please select user role</div>
+      </div>
+    </div>
+
+    <div class="text-center">
+      <button
+        type="submit"
+        class="btn btn-outline-dark px-5 fw-bold"
+        (click)="register()"
+        [disabled]="!registrationForm.valid"
+      >
+        Register
+      </button>
+    </div>
+  </form>
+</div>

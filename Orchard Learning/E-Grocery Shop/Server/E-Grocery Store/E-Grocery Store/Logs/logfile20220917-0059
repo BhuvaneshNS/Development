@@ -1,0 +1,3 @@
+2022-09-17 00:59:20,951 ERROR E_Grocery_Store.Controllers.GroceryController.MoveNext [124] - MESSAGE: No Groceris available
+2022-09-17 00:59:41,795 ERROR E_Grocery_Store.Controllers.GroceryController.MoveNext [105] - MESSAGE: No Groceris available
+2022-09-17 00:59:59,516 ERROR E_Grocery_Store.Controllers.TransactionController.MoveNext [145] - MESSAGE: Cart is empty

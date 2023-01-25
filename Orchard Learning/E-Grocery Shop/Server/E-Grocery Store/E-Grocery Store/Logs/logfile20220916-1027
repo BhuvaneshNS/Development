@@ -1,0 +1,10 @@
+2022-09-16 10:27:20,859 ERROR Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Failed executing DbCommand (8ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Cart] (
+    [Id] int NOT NULL IDENTITY,
+    [UserId] int NOT NULL,
+    [GroceryId] int NOT NULL,
+    [Quantity] int NOT NULL,
+    CONSTRAINT [PK_Cart] PRIMARY KEY ([Id]),
+    CONSTRAINT [FK_Cart_Groceries_GroceryId] FOREIGN KEY ([GroceryId]) REFERENCES [Groceries] ([Id]) ON DELETE CASCADE,
+    CONSTRAINT [FK_Cart_Users_UserId] FOREIGN KEY ([UserId]) REFERENCES [Users] ([Id]) ON DELETE CASCADE
+);

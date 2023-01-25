@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Login";
+}
+<div class="form">
+    <h2 class="form-heading">Login</h2>
+
+    @using (Html.BeginForm())
+    {
+        <div class="input-container">
+            @Html.Label("Mail Id", null, new { @for = "password" })
+            @Html.TextBox("mailID", null, new { @required = true, @class = "input input-login" })
+        </div>
+        <div class="input-container">
+            @Html.Label("Password", null, new { @for = "password" })
+            @Html.Password("password", null, new { @required = true, @class = "input input-login" })
+        </div>
+
+        <div>
+            <p class="error">@ViewBag.Failed</p>
+        </div>
+
+        <div class="input-container">
+            <input type="submit" value="Login" class="btn login" />
+        </div>
+
+        <div class="input-container">
+            @Html.ActionLink("Don't have account? Register here", "Register", new { area = "" }, new { @class = "nav-back" })
+        </div>
+
+    }
+</div>
+

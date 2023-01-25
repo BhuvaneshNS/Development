@@ -1,0 +1,6 @@
+2022-09-16 10:17:50,441 ERROR Microsoft.EntityFrameworkCore.Database.Command.? [?] - MESSAGE: Failed executing DbCommand (3ms) [Parameters=[], CommandType='Text', CommandTimeout='30']
+CREATE TABLE [Genders] (
+    [Id] int NOT NULL IDENTITY,
+    [Name] nvarchar(max) NULL,
+    CONSTRAINT [PK_Genders] PRIMARY KEY ([Id])
+);

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAASuscefBnaUiKQa2cmI0qCAAAAAACAAAAAAADZgAAwAAAABAAAADDXWRqNrl4u5OTxETEOADUAAAAAASAAACgAAAAEAAAABzOrvui5zWSBU6eWFg77kKAAAAAK+if2zcUMvc3p7KBFvRTelIdVlkuiQBtyTlErrMrqAWy4FQYjkWOtptemykD+6Wr3++RYFVxKSmchbEPIifPEeWyYbxa/etbojnesQwTF6norWGv4LL1rPgXr+4Yct1g9CC9gSVr5CbfxKrKoZAiB7mDJSek3RUo7M8l9T947K0UAAAA8xq9MdGz7Nu52F+9eciguiqBgsQ=</EncryptedPassword>
+    <History>True|2022-09-17T07:08:20.3239583Z;</History>
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="E_Grocery_Store.DataAccess.AppDbContext">
+      <Value>Data Source=tcp:e-grocerystoredbserver.database.windows.net,1433%3bInitial Catalog=E-Grocery Store_db%3bUser Id=bhuvanesh%40e-grocerystoredbserver%3bPassword=Admin%40123</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>

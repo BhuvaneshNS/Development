@@ -1,0 +1,6 @@
+<div *ngIf="userData.roleId == 1; else user">
+  <app-admin></app-admin>
+</div>
+<ng-template #user>
+  <app-user></app-user>
+</ng-template>

@@ -1,0 +1,47 @@
+﻿@model IEnumerable<RestaurantBooking.Entities.Restaurant>
+
+@{
+    ViewBag.Title = "Dashboard";
+}
+
+<h2>Dashboard</h2>
+
+@Html.ActionLink("Your Bookings", "Bookings", new { }, new { @class = "booking-link" })
+
+<div>
+    <h3>Restaurants available</h3>
+    <table class="table">
+        <tr>
+            <th>
+                Restaurant Id
+            </th>
+            <th>
+                Restaurant Name
+            </th>
+            <th>
+                City Name
+            </th>
+            <th>Action</th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.RestaurantId
+                </td>
+                <td>
+                    @item.RestaurantName
+                </td>
+                <td>
+                    @item.CityName
+                </td>
+                <td>
+                    @Html.ActionLink("Book", "Book", new { id = item.RestaurantId })
+
+                </td>
+            </tr>
+        }
+
+    </table>
+</div>

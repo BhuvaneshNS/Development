@@ -1,0 +1,3 @@
+2022-09-07 10:46:01,163 ERROR M1092242.Controllers.FoodShopController.Log [59] - MESSAGE: Logged Successfully
+2022-09-07 10:46:09,248 ERROR M1092242.Controllers.FoodShopController.Log [59] - MESSAGE: Logged Successfully
+2022-09-07 10:46:10,373 ERROR M1092242.Controllers.FoodShopController.Log [59] - MESSAGE: Logged Successfully

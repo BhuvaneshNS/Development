@@ -1,0 +1,2 @@
+2022-09-16 22:16:03,058 ERROR E_Grocery_Store.Controllers.TransactionController.MoveNext [108] - MESSAGE: Cart is empty
+2022-09-16 22:16:58,828 ERROR E_Grocery_Store.Controllers.TransactionController.MoveNext [108] - MESSAGE: Cart is empty

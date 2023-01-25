@@ -1,0 +1,39 @@
+﻿@model IEnumerable<M1092242.Entities.ServiceCenter>
+
+@{
+    ViewBag.Title = "ServiceCenter";
+}
+
+<h2>ServiceCenter</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ServiceCenterName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Location)
+        </th>
+        <th>Action</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ServiceCenterName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Location)
+            </td>
+            <td>
+                @Html.ActionLink("View Users", "ViewUsers", new { id = item.ServiceCenterId }) |
+
+            </td>
+        </tr>
+    }
+
+</table>

@@ -1,0 +1,43 @@
+﻿@model RestaurantBooking.Entities.Booking
+
+@{
+    ViewBag.Title = "Book";
+}
+
+<div class=" form">
+    <h2 class=" form-heading">Book A Meal</h2>
+
+    @using (Html.BeginForm())
+    {
+        <div class="input-container">
+            @Html.LabelFor(model => model.NoOfPeople, new { @for = "NoOfPeople" })
+            @Html.TextBoxFor(model => model.NoOfPeople, new { @type = "number", @class = "input", @required = true })
+        </div>
+
+
+        <div class="input-container">
+            @Html.LabelFor(model => model.MealType, new { @for = "MealType" })
+            @Html.DropDownListFor(model => model.MealType, new List<SelectListItem>() { new SelectListItem() { Text = "Select meal type", Value = "" }, new SelectListItem() { Text = "Veg", Value = "Veg" }, new SelectListItem() { Text = "Non-veg", Value = "Non-veg" } }, new { @class = "input drop-down", @required = true })
+        </div>
+
+        <div class="input-container">
+            @Html.LabelFor(model => model.BookiingDate, new { @for = "BookiingDate" })
+            @Html.TextBoxFor(model => model.BookiingDate, new { @type = "date", @class = "input", @required = true })
+        </div>
+
+        <input type="hidden" name="RestaurantId" value="@Convert.ToInt32(ViewBag.RestaurantId)" />
+
+        <div>
+            <p class="success">@ViewBag.Success</p>
+            <p class="error">@ViewBag.Error</p>
+        </div>
+
+        <div class="input-container">
+            <input type="submit" value="Book" class="btn register-submit" />
+            <input type="reset" value="Clear" class="btn register-reset">
+        </div>
+
+        <div>@Html.ActionLink("<< Go Back", "Index", "Home", new { area = "" }, new { @class = "nav-back" })</div>
+
+    }
+</div>

@@ -1,0 +1,182 @@
+<div class="container">
+  <h1 class="text-center">List of Food Shops</h1>
+
+  <button
+    type="button"
+    class="btn btn-primary my-3"
+    data-bs-toggle="modal"
+    data-bs-target="#foodShopFormModal"
+    (click)="onAddClick()"
+  >
+    Add New Shop
+  </button>
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr class="table-dark">
+        <th>Shop Id</th>
+        <th>Shop Name</th>
+        <th>City</th>
+        <th>Phone No.</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let shop of adminService.foodShopList">
+        <td>{{ shop.fastFoodShopId }}</td>
+        <td>{{ shop.fastFoodShopName }}</td>
+        <td>{{ shop.city }}</td>
+        <td>{{ shop.phoneNumber }}</td>
+        <td>
+          <div class="btn-group">
+            <button
+              type="button"
+              class="btn btn-primary btn-sm dropdown-toggle px-4"
+              data-bs-toggle="dropdown"
+              aria-expanded="false"
+            >
+              Action
+            </button>
+            <ul class="dropdown-menu">
+              <li>
+                <a
+                  class="dropdown-item"
+                  [routerLink]="['/shopDetails', shop.fastFoodShopId]"
+                  >View Details</a
+                >
+              </li>
+              <li><hr class="dropdown-divider" /></li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  data-bs-toggle="modal"
+                  data-bs-target="#foodShopFormModal"
+                  (click)="onEditClick(shop.fastFoodShopId)"
+                  >Edit Details</a
+                >
+              </li>
+              <li>
+                <a
+                  class="dropdown-item"
+                  (click)="onDeleteClick(shop.fastFoodShopId)"
+                  >Delete Shop</a
+                >
+              </li>
+            </ul>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- Modal -->
+<div
+  class="modal fade"
+  id="foodShopFormModal"
+  data-bs-backdrop="static"
+  data-bs-keyboard="false"
+  tabindex="-1"
+  aria-labelledby="foodShopFormModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="foodShopFormModalLabel">
+          {{ formHeaderToggle ? "Edit Shop Details" : "Add New Shop" }}
+        </h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <form class="mx-3" [formGroup]="foodShopForm">
+          <input type="hidden" formControlName="fastFoodShopId" />
+          <div class="form-group mb-4">
+            <label for="fastFoodShopName">Shop Name</label>
+            <input
+              type="text"
+              id="fastFoodShopName"
+              class="form-control"
+              formControlName="fastFoodShopName"
+              placeholder="Enter shop name"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                !fastFoodShopName?.valid &&
+                (fastFoodShopName?.dirty || fastFoodShopName?.touched)
+              "
+            >
+              <div *ngIf="fastFoodShopName?.errors?.['required']">
+                Shop name is required
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="city">Select City</label>
+            <select class="form-control" formControlName="city" id="city">
+              <option value="" disabled>Select</option>
+              <option *ngFor="let city of cities" [value]="city">
+                {{ city }}
+              </option>
+            </select>
+            <div
+              class="text-danger"
+              *ngIf="!city?.valid && (city?.dirty || city?.touched)"
+            >
+              <div *ngIf="city?.errors?.['required']">Please select city</div>
+            </div>
+          </div>
+
+          <div class="form-group mb-4">
+            <label for="phoneNumber">Phone Number</label>
+            <input
+              type="text"
+              id="phoneNumber"
+              class="form-control"
+              formControlName="phoneNumber"
+              placeholder="Enter phone number"
+            />
+            <div
+              class="text-danger"
+              *ngIf="
+                !phoneNumber?.valid &&
+                (phoneNumber?.dirty || phoneNumber?.touched)
+              "
+            >
+              <div *ngIf="phoneNumber?.errors?.['required']">
+                Shop name is required
+              </div>
+              <div *ngIf="phoneNumber?.errors?.['pattern']">
+                Enter valid phone number
+              </div>
+            </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button
+          type="button"
+          class="btn btn-secondary"
+          data-bs-dismiss="modal"
+          #closebutton
+        >
+          Close
+        </button>
+        <button
+          type="button"
+          class="btn btn-success"
+          (click)="onSubmit()"
+          [disabled]="!foodShopForm.valid"
+        >
+          Submit
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

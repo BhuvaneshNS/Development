@@ -1,0 +1,26 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Restaurant Booking</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <header>
+        @Html.ActionLink("Restaurant Booking", "Index", "Home", new { area = "" }, new { @class = "header-appname" })
+        @if (Session["UserId"] != null)
+        {@Html.ActionLink("Logout", "Logout", "Dashboard", new { @style = "float: right; margin-right: 10px; display: inline; color:white; text-decoration:none; font-weight:bold; font-size:20px; margin-top:15px;" })
+        <h3 style="float: right; margin-right: 20px; display: inline; color:white">Welcome, @Session["FirstName"].ToString()</h3>}
+    </header>
+
+    <div class="container body-content">
+        @RenderBody()
+        <div class="footer">
+            <footer>
+                <p>&copy; @DateTime.Now.Year - Restaurant Booking</p>
+            </footer>
+        </div>
+    </div>
+</body>
+</html>

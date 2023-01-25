@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\LibraryManagement.CustomException\LibraryManagement.CustomException.csproj" />
+    <ProjectReference Include="..\LibraryManagement.DataAccessLayer\LibraryManagement.DataAccessLayer.csproj" />
+    <ProjectReference Include="..\LibraryManagement.Entities\LibraryManagement.Entities.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<img class="banner" src="~/Content/Images/banner.jpg" />
+
+<div class="wlcome-messsage-container">
+    <h2 class="wlcome-messsage">Welcome to Restaurant Booking App</h2>
+    @Html.ActionLink("Login", "Login", "UserAuthentication", new { area = "" }, new { @class = "btn login" })
+    @Html.ActionLink("Register", "Register", "UserAuthentication", new { area = "" }, new { @class = "btn register" })
+
+</div>
+

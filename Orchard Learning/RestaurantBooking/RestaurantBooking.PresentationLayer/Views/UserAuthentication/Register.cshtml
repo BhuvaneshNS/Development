@@ -1,0 +1,50 @@
+﻿@model RestaurantBooking.Entities.User
+
+@{
+    ViewBag.Title = "Register";
+}
+<div class="form">
+    <h2 class="form-heading">Register Here</h2>
+
+    @using (Html.BeginForm("Register", "UserAuthentication", FormMethod.Post))
+    {
+        @Html.ValidationSummary(true)
+        <div class="input-container">
+            @Html.LabelFor(model => model.FirstName, "First Name :")
+            @Html.TextBoxFor(model => model.FirstName, new { @class = "input" })
+            @Html.ValidationMessageFor(model => model.FirstName, null)
+        </div>
+
+        <div class="input-container">
+            Last Name: @Html.TextBoxFor(model => model.LastName, new { @class = "input", @required = true })
+        </div>
+
+        <div class="input-container">
+            Gender: @Html.DropDownListFor(model => model.Gender, new List<SelectListItem>() { new SelectListItem() { Text = "Select Gender", Value = "" }, new SelectListItem() { Text = "Male", Value = "Male" }, new SelectListItem() { Text = "Female", Value = "Female" } }, new { @class = "input drop-down", @required = true })
+        </div>
+
+        <div class="input-container">
+            DOB [dd/mm/yyyy]: @Html.TextBoxFor(model => model.DOB, new { @class = "input", @required = true, @type = "date" })
+        </div>
+
+        <div class="input-container">
+            Mail id: @Html.TextBoxFor(model => model.MailId, new { @class = "input", @required = true })
+        </div>
+
+        <div class="input-container">
+            Password: @Html.PasswordFor(model => model.Password, new { @class = "input", @required = true })
+        </div>
+        <div>
+            <p class="success">@ViewBag.Success</p>
+            <p class="error">@ViewBag.Error</p>
+        </div>
+        <div class="button-container">
+            <input type="submit" value="Register" class="btn register-submit">
+            <input type="reset" value="Clear" class="btn register-reset">
+        </div>
+
+        <div>@Html.ActionLink("<< Go Back", "Index", "Home", new { area = "" }, new { @class = "nav-back" })</div>
+    }
+</div>
+
+
